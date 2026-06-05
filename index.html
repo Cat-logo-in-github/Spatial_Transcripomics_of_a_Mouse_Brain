@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -27,8 +26,7 @@ body{
     min-height:100vh;
     color:white;
     overflow-x:hidden;
-    background:
-        linear-gradient(135deg,var(--bg1),var(--bg2));
+    background:linear-gradient(135deg,var(--bg1),var(--bg2));
 }
 
 /* Animated background */
@@ -60,12 +58,8 @@ body::before{
 }
 
 @keyframes float{
-    from{
-        transform:translateY(110vh);
-    }
-    to{
-        transform:translateY(-100px);
-    }
+    from{transform:translateY(110vh);}
+    to{transform:translateY(-100px);}
 }
 
 .container{
@@ -86,6 +80,7 @@ body::before{
 .hero .brain{
     display:inline-block;
     animation:bob 3s ease-in-out infinite;
+    font-size:3rem;
 }
 
 @keyframes bob{
@@ -153,11 +148,7 @@ body::before{
     font-weight:700;
     padding:14px 22px;
     border-radius:12px;
-    background:linear-gradient(
-        135deg,
-        var(--accent),
-        var(--accent2)
-    );
+    background:linear-gradient(135deg,var(--accent),var(--accent2));
     transition:.3s ease;
 }
 
@@ -179,34 +170,13 @@ body::before{
     border-radius:16px;
 }
 
-.feature h3{
-    margin-bottom:8px;
-}
-
 footer{
     text-align:center;
     padding:30px;
     opacity:.7;
     border-top:1px solid rgba(255,255,255,.08);
 }
-
-.fade{
-    opacity:0;
-    transform:translateY(25px);
-    animation:appear .8s forwards;
-}
-
-.fade:nth-child(2){animation-delay:.2s;}
-.fade:nth-child(3){animation-delay:.4s;}
-
-@keyframes appear{
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
 </style>
-
 </head>
 
 <body>
@@ -227,63 +197,52 @@ for(let i=0;i<25;i++){
 
 <div class="container">
 
-<section class="hero fade">
+<section class="hero">
     <div class="brain">🧠</div>
 
-```
-<h1>Spatial Transcriptomics Explorer</h1>
+    <h1>Spatial Transcriptomics Explorer</h1>
 
-<p class="subtitle">
-    Explore how scientists use coding, data, and biology
-    to understand the brain. Launch an interactive notebook
-    and investigate real biological data directly in Google Colab.
-</p>
+    <p class="subtitle">
+        Explore how scientists use coding, data, and biology
+        to understand the brain. Launch an interactive notebook
+        and investigate real biological data directly in Google Colab.
+    </p>
 
-<div class="mission">
-    🔬 Mission: Become a Bioinformatics Explorer
-</div>
-```
-
+    <div class="mission">
+        🔬 Mission: Become a Bioinformatics Explorer
+    </div>
 </section>
 
 <section class="cards">
 
-```
-<div class="card fade">
-    <div class="icon">🧬</div>
+    <div class="card">
+        <div class="icon">🧬</div>
+        <h2>Transcriptomics Guide</h2>
+        <p>
+            Learn the basics of computational biology and
+            discover how researchers analyze gene expression
+            across thousands of cells.
+        </p>
 
-    <h2>Transcriptomics Guide</h2>
+        <a class="btn" target="_blank"
+        href="https://colab.research.google.com/github/Cat-logo-in-github/Spatial_Transcripomics_of_a_Mouse_Brain/blob/main/An_Introductory_Guide_to_Computation_for_Transcriptomics.ipynb">
+            Launch Notebook 🚀
+        </a>
+    </div>
 
-    <p>
-        Learn the basics of computational biology and
-        discover how researchers analyze gene expression
-        across thousands of cells.
-    </p>
+    <div class="card">
+        <div class="icon">🎮</div>
+        <h2>Classroom Playground</h2>
+        <p>
+            Experiment with code, explore biological data,
+            and try hands-on activities.
+        </p>
 
-    <a class="btn"
-    target="_blank"
-    href="https://colab.research.google.com/github/Cat-logo-in-github/Spatial_Transcripomics_of_a_Mouse_Brain/blob/main/An_Introductory_Guide_to_Computation_for_Transcriptomics.ipynb">
-        Launch Notebook 🚀
-    </a>
-</div>
-
-<div class="card fade">
-    <div class="icon">🎮</div>
-
-    <h2>Classroom Playground</h2>
-
-    <p>
-        Experiment with code, explore biological data,
-        and try activities designed for hands-on learning.
-    </p>
-
-    <a class="btn"
-    target="_blank"
-    href="https://colab.research.google.com/github/Cat-logo-in-github/Spatial_Transcripomics_of_a_Mouse_Brain/blob/main/Classroom_Playground.ipynb">
-        Start Exploring 🌟
-    </a>
-</div>
-```
+        <a class="btn" target="_blank"
+        href="https://colab.research.google.com/github/Cat-logo-in-github/Spatial_Transcripomics_of_a_Mouse_Brain/blob/main/Classroom_Playground.ipynb">
+            Start Exploring 🌟
+        </a>
+    </div>
 
 </section>
 
@@ -293,18 +252,15 @@ for(let i=0;i<25;i++){
         <p>Discover how cells work together in the brain.</p>
     </div>
 
-```
-<div class="feature">
-    <h3>💻 Coding</h3>
-    <p>Learn how scientists use Python to study data.</p>
-</div>
+    <div class="feature">
+        <h3>💻 Coding</h3>
+        <p>Learn how scientists use Python to study data.</p>
+    </div>
 
-<div class="feature">
-    <h3>📊 Data Science</h3>
-    <p>Visualize and interpret real-world datasets.</p>
-</div>
-```
-
+    <div class="feature">
+        <h3>📊 Data Science</h3>
+        <p>Visualize and interpret real-world datasets.</p>
+    </div>
 </section>
 
 <footer>
