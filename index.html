@@ -182,9 +182,7 @@ footer{
     width:260px;
     height:260px;
     margin:30px auto 10px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+    overflow:hidden;
 }
 
 .brain-scan::after{
@@ -242,6 +240,24 @@ footer{
     filter: drop-shadow(0 0 12px rgba(56,189,248,0.6));
     animation:bob 3s ease-in-out infinite;
 }
+
+.brain-video{
+    width:260px;
+    height:260px;
+    object-fit:cover;
+    border-radius:20px;
+    filter: drop-shadow(0 0 25px rgba(56,189,248,0.6));
+}
+
+.scan-line{
+    z-index: 2;
+    pointer-events: none;
+}
+
+.brain-video{
+    position:relative;
+    z-index: 1;
+}
 </style>
 </head>
 
@@ -279,8 +295,8 @@ for(let i=0;i<25;i++){
     </div>
 </section>
 <div class="brain-scan">
-    <video class="brain-video" autoplay loop muted playsinline>
-        <source src="https://cdn.coverr.co/videos/coverr-brain-scan-7210/1080p.mp4" type="video/mp4">
+    <video class="brain-video" controls autoplay muted>
+    <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
     </video>
 <div class="scan-line"></div>
 </div>
