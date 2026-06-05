@@ -29,7 +29,7 @@ body{
     background:linear-gradient(135deg,var(--bg1),var(--bg2));
 }
 
-/* Animated background */
+/* background glow */
 body::before{
     content:"";
     position:fixed;
@@ -47,7 +47,7 @@ body::before{
     to{transform:scale(1.15);}
 }
 
-/* Floating particles */
+/* floating particles */
 .particle{
     position:fixed;
     border-radius:50%;
@@ -67,29 +67,19 @@ body::before{
     margin:auto;
 }
 
+/* HERO */
 .hero{
     text-align:center;
-    padding:90px 20px 50px;
+    padding:90px 20px 40px;
 }
 
 .hero h1{
-    font-size:clamp(2.5rem,6vw,4.8rem);
+    font-size:clamp(2.2rem,5vw,4rem);
     margin-bottom:16px;
 }
 
-.hero .brain{
-    display:inline-block;
-    animation:bob 3s ease-in-out infinite;
-    font-size:3rem;
-}
-
-@keyframes bob{
-    0%,100%{transform:translateY(0);}
-    50%{transform:translateY(-10px);}
-}
-
 .subtitle{
-    font-size:1.2rem;
+    font-size:1.1rem;
     opacity:.9;
     max-width:750px;
     margin:auto;
@@ -97,287 +87,212 @@ body::before{
 }
 
 .mission{
-    margin-top:40px;
+    margin-top:30px;
     display:inline-block;
-    padding:12px 20px;
+    padding:10px 18px;
     border-radius:999px;
     background:rgba(255,255,255,.08);
     border:1px solid rgba(255,255,255,.15);
 }
 
+/* SCAN SECTION */
+.brain-scan{
+    width:260px;
+    height:260px;
+    margin:35px auto;
+    position:relative;
+    border-radius:20px;
+    overflow:hidden;
+    background:#000;
+    box-shadow:0 0 40px rgba(56,189,248,0.25);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+/* VIDEO FIXED */
+.brain-video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    position:relative;
+    z-index:1;
+}
+
+/* scan overlay */
+.scan-line{
+    position:absolute;
+    left:0;
+    width:100%;
+    height:3px;
+    background:rgba(56,189,248,1);
+    box-shadow:0 0 20px rgba(56,189,248,0.9);
+    animation:scan 2s linear infinite;
+    z-index:2;
+    pointer-events:none;
+}
+
+@keyframes scan{
+    0%{transform:translateY(0); opacity:0;}
+    20%{opacity:1;}
+    100%{transform:translateY(260px); opacity:0;}
+}
+
+/* CARDS */
 .cards{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-    gap:28px;
-    padding:50px 0 80px;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:22px;
+    padding:50px 0;
 }
 
 .card{
     background:var(--glass);
     backdrop-filter:blur(16px);
     border:1px solid rgba(255,255,255,.15);
-    border-radius:24px;
-    padding:28px;
-    transition:.35s ease;
+    border-radius:22px;
+    padding:24px;
+    transition:.3s;
 }
 
 .card:hover{
-    transform:translateY(-8px);
-    box-shadow:0 20px 50px rgba(0,0,0,.25);
-}
-
-.icon{
-    font-size:2.5rem;
-    margin-bottom:12px;
+    transform:translateY(-6px);
 }
 
 .card h2{
-    margin-bottom:12px;
+    margin-bottom:10px;
 }
 
 .card p{
-    line-height:1.7;
     opacity:.9;
+    line-height:1.6;
 }
 
 .btn{
     display:inline-block;
-    margin-top:20px;
-    text-decoration:none;
-    color:white;
-    font-weight:700;
-    padding:14px 22px;
+    margin-top:16px;
+    padding:12px 18px;
     border-radius:12px;
     background:linear-gradient(135deg,var(--accent),var(--accent2));
-    transition:.3s ease;
+    color:white;
+    text-decoration:none;
+    font-weight:700;
+    transition:.3s;
 }
 
 .btn:hover{
     transform:scale(1.05);
 }
 
+/* FEATURES */
 .features{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
     gap:18px;
-    margin-bottom:70px;
+    padding-bottom:60px;
 }
 
 .feature{
     text-align:center;
-    padding:20px;
+    padding:18px;
     background:rgba(255,255,255,.05);
-    border-radius:16px;
+    border-radius:14px;
 }
 
+/* FOOTER */
 footer{
     text-align:center;
-    padding:30px;
+    padding:25px;
     opacity:.7;
     border-top:1px solid rgba(255,255,255,.08);
-}
-
-.brain-scan{
-    position:relative;
-    width:260px;
-    height:260px;
-    margin:30px auto 10px;
-    overflow:hidden;
-}
-
-.brain-scan::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    border-radius:20px;
-    background:linear-gradient(
-        to bottom,
-        transparent,
-        rgba(56,189,248,0.08),
-        transparent
-    );
-    pointer-events:none;
-}
-
-.brain-svg{
-    width:100%;
-    height:100%;
-    filter: drop-shadow(0 0 25px rgba(56,189,248,0.6));
-}
-
-.scan-line{
-    position:absolute;
-    width:280px;
-    height:3px;
-    background:rgba(56,189,248,1);
-    box-shadow:0 0 25px rgba(56,189,248,0.9);
-    animation:scan 2s linear infinite;
-    top:50%;
-    left:50%;
-    transform:translate(-50%, -50%);
-}
-
-@keyframes scan{
-    0%{
-        transform:translateY(-80px);
-        opacity:0;
-    }
-    20%{
-        opacity:1;
-    }
-    50%{
-        opacity:1;
-    }
-    100%{
-        transform:translateY(80px);
-        opacity:0;
-    }
-}
-
-.brain-icon{
-    width:90px;
-    margin-bottom:10px;
-    filter: drop-shadow(0 0 12px rgba(56,189,248,0.6));
-    animation:bob 3s ease-in-out infinite;
-}
-
-.brain-video{
-    width:260px;
-    height:260px;
-    object-fit:cover;
-    border-radius:20px;
-    filter: drop-shadow(0 0 25px rgba(56,189,248,0.6));
-}
-
-.scan-line{
-    z-index: 2;
-    pointer-events: none;
-}
-
-.brain-video{
-    position:relative;
-    z-index: 1;
 }
 </style>
 </head>
 
 <body>
 
+<!-- particles -->
 <script>
-for(let i=0;i<25;i++){
+for(let i=0;i<20;i++){
     const p=document.createElement("div");
     p.className="particle";
-    const size=Math.random()*8+4;
+    let size=Math.random()*6+3;
     p.style.width=size+"px";
     p.style.height=size+"px";
     p.style.left=Math.random()*100+"vw";
-    p.style.animationDuration=(10+Math.random()*12)+"s";
-    p.style.animationDelay=(-Math.random()*20)+"s";
+    p.style.animationDuration=(8+Math.random()*10)+"s";
+    p.style.animationDelay=(-Math.random()*10)+"s";
     document.body.appendChild(p);
 }
 </script>
 
 <div class="container">
 
+<!-- HERO -->
 <section class="hero">
-    <img class="brain-icon" src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png" alt="brain">
-
     <h1>Spatial Transcriptomics Explorer</h1>
 
     <p class="subtitle">
         Explore how scientists use coding, data, and biology
-        to understand the brain. Launch an interactive notebook
-        and investigate real biological data directly in Google Colab.
+        to understand the brain using real computational tools.
     </p>
 
     <div class="mission">
         🔬 Mission: Become a Bioinformatics Explorer
     </div>
 </section>
+
+<!-- MRI SCAN -->
 <div class="brain-scan">
-    <video class="brain-video" controls autoplay muted>
-    <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
+    <video class="brain-video" autoplay loop muted playsinline>
+        <source src="https://filesamples.com/samples/video/mp4/sample_640x360.mp4" type="video/mp4">
     </video>
-<div class="scan-line"></div>
+
+    <div class="scan-line"></div>
 </div>
-    
+
+<!-- CARDS -->
 <section class="cards">
 
     <div class="card">
-        <div class="icon">
-        <img src="https://cdn-icons-png.flaticon.com/512/3003/3003984.png" width="42">
-        </div>
         <h2>Transcriptomics Guide</h2>
-        <p>
-            Learn the basics of computational biology and
-            discover how researchers analyze gene expression
-            across thousands of cells.
-        </p>
-
+        <p>Learn how gene expression is analyzed across thousands of cells.</p>
         <a class="btn" target="_blank"
         href="https://colab.research.google.com/github/Cat-logo-in-github/Spatial_Transcripomics_of_a_Mouse_Brain/blob/main/An_Introductory_Guide_to_Computation_for_Transcriptomics.ipynb">
-            Launch Notebook 🚀
+        Launch Notebook
         </a>
     </div>
 
     <div class="card">
-        <div class="icon">
-        <img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png" width="42">
-        </div>
         <h2>Classroom Playground</h2>
-        <p>
-            Experiment with code, explore biological data,
-            and try hands-on activities.
-            
-            
-        </p>
-
+        <p>Experiment with real biological datasets and Python tools.</p>
         <a class="btn" target="_blank"
         href="https://colab.research.google.com/github/Cat-logo-in-github/Spatial_Transcripomics_of_a_Mouse_Brain/blob/main/Classroom_Playground.ipynb">
-            Open in Colab 🚀
+        Open in Colab
         </a>
     </div>
 
     <div class="card">
-        <div class="icon">
-        <img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png" width="42">
-        </div>
-        <h2>Classroom Playground Laggy?</h2>
-        <p>
-            Are too many people on Colab and It's not running now?
-            Open This File to look at images.
-        </p>
-
+        <h2>Offline Version</h2>
+        <p>Use this if Colab is slow or unavailable.</p>
         <a class="btn" target="_blank"
         href="Classroom_Playground_Loaded.html">
-            Start Local Version 🌟
+        Open Local Version
         </a>
     </div>
 
 </section>
 
+<!-- FEATURES -->
 <section class="features">
-    <div class="feature">
-        <img src="https://cdn-icons-png.flaticon.com/512/2103/2103633.png" width="40">
-        <h3>Biology</h3>
-        <p>Discover how cells work together in the brain.</p>
-    </div>
-
-    <div class="feature">
-        <img src="https://cdn-icons-png.flaticon.com/512/1006/1006363.png" width="40">
-        <h3>Coding</h3>
-        <p>Learn how scientists use Python to study data.</p>
-    </div>
-
-    <div class="feature">
-        <img src="https://cdn-icons-png.flaticon.com/512/2103/2103631.png" width="40">
-        <h3>Data Science</h3>
-        <p>Visualize and interpret real-world datasets.</p>
-    </div>
+    <div class="feature">🧬 Biology</div>
+    <div class="feature">💻 Coding</div>
+    <div class="feature">📊 Data Science</div>
 </section>
 
 <footer>
-    Made with curiosity, biology, and a little bit of code ✨
+    Made with curiosity, biology, and code ✨
 </footer>
 
 </div>
