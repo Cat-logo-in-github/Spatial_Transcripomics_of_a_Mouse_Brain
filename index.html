@@ -176,6 +176,49 @@ footer{
     opacity:.7;
     border-top:1px solid rgba(255,255,255,.08);
 }
+
+.brain-scan{
+    position:relative;
+    width:220px;
+    height:220px;
+    margin:20px auto 10px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    opacity:0.9;
+}
+
+.brain-svg{
+    width:100%;
+    height:100%;
+    filter: drop-shadow(0 0 10px rgba(56,189,248,0.3));
+}
+
+.scan-line{
+    position:absolute;
+    width:160px;
+    height:2px;
+    background:rgba(56,189,248,0.8);
+    box-shadow:0 0 10px rgba(56,189,248,0.6);
+    animation:scan 2.5s linear infinite;
+}
+
+@keyframes scan{
+    0%{
+        transform:translateY(-80px);
+        opacity:0;
+    }
+    20%{
+        opacity:1;
+    }
+    50%{
+        opacity:1;
+    }
+    100%{
+        transform:translateY(80px);
+        opacity:0;
+    }
+}
 </style>
 </head>
 
@@ -212,6 +255,26 @@ for(let i=0;i<25;i++){
         🔬 Mission: Become a Bioinformatics Explorer
     </div>
 </section>
+<div class="brain-scan">
+    <svg viewBox="0 0 200 200" class="brain-svg">
+        <path d="M60,40
+                 C40,40 30,60 35,80
+                 C20,95 25,120 45,125
+                 C50,145 70,155 85,145
+                 C95,160 120,160 130,145
+                 C150,155 170,140 165,120
+                 C180,110 175,85 160,80
+                 C170,60 150,40 130,45
+                 C120,30 80,30 60,40 Z"
+              fill="none"
+              stroke="rgba(56,189,248,0.25)"
+              stroke-width="2"/>
+    </svg>
+
+    <div class="scan-line"></div>
+</div>
+
+
 
 <section class="cards">
 
