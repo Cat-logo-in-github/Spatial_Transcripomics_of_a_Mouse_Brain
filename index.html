@@ -195,11 +195,14 @@ footer{
 
 .scan-line{
     position:absolute;
-    width:200px;
+    width:180px;
     height:3px;
     background:rgba(56,189,248,1);
-    box-shadow:0 0 20px rgba(56,189,248,0.9);
+    box-shadow:0 0 25px rgba(56,189,248,0.9);
     animation:scan 2s linear infinite;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
 }
 
 @keyframes scan{
@@ -262,30 +265,44 @@ for(let i=0;i<25;i++){
     </div>
 </section>
 <div class="brain-scan">
-    <svg viewBox="0 0 200 200" class="brain-svg">
-        <path d="M60,40
-                 C40,40 30,60 35,80
-                 C20,95 25,120 45,125
-                 C50,145 70,155 85,145
-                 C95,160 120,160 130,145
-                 C150,155 170,140 165,120
-                 C180,110 175,85 160,80
-                 C170,60 150,40 130,45
-                 C120,30 80,30 60,40 Z"
-              fill="none"
-              stroke="rgba(56,189,248,0.25)"
-              stroke-width="2"/>
-    </svg>
 
-    <div class="scan-line"></div>
+<svg viewBox="0 0 200 200" class="brain-svg">
+
+<!-- more realistic brain silhouette -->
+<path d="M100,30
+C70,20 50,40 55,65
+C35,75 35,105 55,115
+C50,145 80,165 100,150
+C120,165 150,145 145,115
+C165,105 165,75 145,65
+C150,40 130,20 100,30 Z"
+
+fill="rgba(56,189,248,0.05)"
+stroke="rgba(56,189,248,0.9)"
+stroke-width="2"/>
+
+<!-- inner folds -->
+<path d="M70,70 C85,60 95,80 110,70"
+fill="none" stroke="rgba(56,189,248,0.6)" stroke-width="1.5"/>
+
+<path d="M65,100 C85,90 95,110 115,100"
+fill="none" stroke="rgba(56,189,248,0.6)" stroke-width="1.5"/>
+
+<path d="M80,130 C95,120 110,135 125,125"
+fill="none" stroke="rgba(56,189,248,0.6)" stroke-width="1.5"/>
+
+</svg>
+
+<div class="scan-line"></div>
+
 </div>
-
-
 
 <section class="cards">
 
     <div class="card">
-        <div class="icon">🧬</div>
+        <div class="icon">
+        <img src="https://cdn-icons-png.flaticon.com/512/3003/3003984.png" width="42">
+        </div>
         <h2>Transcriptomics Guide</h2>
         <p>
             Learn the basics of computational biology and
@@ -300,7 +317,9 @@ for(let i=0;i<25;i++){
     </div>
 
     <div class="card">
-        <div class="icon">🎮</div>
+        <div class="icon">
+        <img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png" width="42">
+        </div>
         <h2>Classroom Playground</h2>
         <p>
             Experiment with code, explore biological data,
