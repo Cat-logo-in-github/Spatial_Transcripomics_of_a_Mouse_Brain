@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Spatial Transcriptomics Explorer</title>
+
+<style>
+:root{
+    --bg1:#0f172a;
+    --bg2:#1e293b;
+    --accent:#38bdf8;
+    --accent2:#8b5cf6;
+    --glass:rgba(255,255,255,0.08);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
+    min-height:100vh;
+    color:white;
+    overflow-x:hidden;
+    background:
+        linear-gradient(135deg,var(--bg1),var(--bg2));
+}
+
+/* Animated background */
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(56,189,248,.15), transparent 30%),
+        radial-gradient(circle at 80% 30%, rgba(139,92,246,.15), transparent 30%),
+        radial-gradient(circle at 50% 80%, rgba(34,197,94,.12), transparent 30%);
+    animation: drift 12s ease-in-out infinite alternate;
+    z-index:-2;
+}
+
+@keyframes drift{
+    from{transform:scale(1);}
+    to{transform:scale(1.15);}
+}
+
+/* Floating particles */
+.particle{
+    position:fixed;
+    border-radius:50%;
+    background:rgba(255,255,255,0.12);
+    pointer-events:none;
+    z-index:-1;
+    animation: float linear infinite;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(110vh);
+    }
+    to{
+        transform:translateY(-100px);
+    }
+}
+
+.container{
+    width:min(1100px,92%);
+    margin:auto;
+}
+
+.hero{
+    text-align:center;
+    padding:90px 20px 50px;
+}
+
+.hero h1{
+    font-size:clamp(2.5rem,6vw,4.8rem);
+    margin-bottom:16px;
+}
+
+.hero .brain{
+    display:inline-block;
+    animation:bob 3s ease-in-out infinite;
+}
+
+@keyframes bob{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-10px);}
+}
+
+.subtitle{
+    font-size:1.2rem;
+    opacity:.9;
+    max-width:750px;
+    margin:auto;
+    line-height:1.7;
+}
+
+.mission{
+    margin-top:40px;
+    display:inline-block;
+    padding:12px 20px;
+    border-radius:999px;
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.15);
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:28px;
+    padding:50px 0 80px;
+}
+
+.card{
+    background:var(--glass);
+    backdrop-filter:blur(16px);
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:24px;
+    padding:28px;
+    transition:.35s ease;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 20px 50px rgba(0,0,0,.25);
+}
+
+.icon{
+    font-size:2.5rem;
+    margin-bottom:12px;
+}
+
+.card h2{
+    margin-bottom:12px;
+}
+
+.card p{
+    line-height:1.7;
+    opacity:.9;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:20px;
+    text-decoration:none;
+    color:white;
+    font-weight:700;
+    padding:14px 22px;
+    border-radius:12px;
+    background:linear-gradient(
+        135deg,
+        var(--accent),
+        var(--accent2)
+    );
+    transition:.3s ease;
+}
+
+.btn:hover{
+    transform:scale(1.05);
+}
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:18px;
+    margin-bottom:70px;
+}
+
+.feature{
+    text-align:center;
+    padding:20px;
+    background:rgba(255,255,255,.05);
+    border-radius:16px;
+}
+
+.feature h3{
+    margin-bottom:8px;
+}
+
+footer{
+    text-align:center;
+    padding:30px;
+    opacity:.7;
+    border-top:1px solid rgba(255,255,255,.08);
+}
+
+.fade{
+    opacity:0;
+    transform:translateY(25px);
+    animation:appear .8s forwards;
+}
+
+.fade:nth-child(2){animation-delay:.2s;}
+.fade:nth-child(3){animation-delay:.4s;}
+
+@keyframes appear{
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+<script>
+for(let i=0;i<25;i++){
+    const p=document.createElement("div");
+    p.className="particle";
+    const size=Math.random()*8+4;
+    p.style.width=size+"px";
+    p.style.height=size+"px";
+    p.style.left=Math.random()*100+"vw";
+    p.style.animationDuration=(10+Math.random()*12)+"s";
+    p.style.animationDelay=(-Math.random()*20)+"s";
+    document.body.appendChild(p);
+}
+</script>
+
+<div class="container">
+
+<section class="hero fade">
+    <div class="brain">🧠</div>
+
+```
+<h1>Spatial Transcriptomics Explorer</h1>
+
+<p class="subtitle">
+    Explore how scientists use coding, data, and biology
+    to understand the brain. Launch an interactive notebook
+    and investigate real biological data directly in Google Colab.
+</p>
+
+<div class="mission">
+    🔬 Mission: Become a Bioinformatics Explorer
+</div>
+```
+
+</section>
+
+<section class="cards">
+
+```
+<div class="card fade">
+    <div class="icon">🧬</div>
+
+    <h2>Transcriptomics Guide</h2>
+
+    <p>
+        Learn the basics of computational biology and
+        discover how researchers analyze gene expression
+        across thousands of cells.
+    </p>
+
+    <a class="btn"
+    target="_blank"
+    href="https://colab.research.google.com/github/Cat-logo-in-github/Spatial_Transcripomics_of_a_Mouse_Brain/blob/main/An_Introductory_Guide_to_Computation_for_Transcriptomics.ipynb">
+        Launch Notebook 🚀
+    </a>
+</div>
+
+<div class="card fade">
+    <div class="icon">🎮</div>
+
+    <h2>Classroom Playground</h2>
+
+    <p>
+        Experiment with code, explore biological data,
+        and try activities designed for hands-on learning.
+    </p>
+
+    <a class="btn"
+    target="_blank"
+    href="https://colab.research.google.com/github/Cat-logo-in-github/Spatial_Transcripomics_of_a_Mouse_Brain/blob/main/Classroom_Playground.ipynb">
+        Start Exploring 🌟
+    </a>
+</div>
+```
+
+</section>
+
+<section class="features">
+    <div class="feature">
+        <h3>🧠 Biology</h3>
+        <p>Discover how cells work together in the brain.</p>
+    </div>
+
+```
+<div class="feature">
+    <h3>💻 Coding</h3>
+    <p>Learn how scientists use Python to study data.</p>
+</div>
+
+<div class="feature">
+    <h3>📊 Data Science</h3>
+    <p>Visualize and interpret real-world datasets.</p>
+</div>
+```
+
+</section>
+
+<footer>
+    Made with curiosity, biology, and a little bit of code ✨
+</footer>
+
+</div>
+
+</body>
+</html>
